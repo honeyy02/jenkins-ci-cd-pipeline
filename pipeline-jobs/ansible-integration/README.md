@@ -3,7 +3,7 @@
 ## 📂 Project Structure
 ```
 ├── Jenkinsfile
-├── copyJartoS3.yml
+├── copyJartoS3
 ```
 
 ---
