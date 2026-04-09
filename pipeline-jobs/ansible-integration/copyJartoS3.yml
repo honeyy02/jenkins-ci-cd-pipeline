@@ -1,0 +1,13 @@
+---
+- name: Copy jar file to S3 bucket and push it to GitHub
+  hosts: localhost
+
+  tasks:
+  - name: Copy Jar to S3 Bucket
+    ansible.builtin.command:
+      cmd: aws s3 cp /var/lib/jenkins/workspace/Simple_Maven_Project_Pipeline/target/my-app-1.0-SNAPSHOT.jar s3://jarbucket2402/my-app-1.0-SNAPSHOT.jar --region us-east-1
+    register: s3_upload
+
+  - name: Debug S3 upload result
+    debug:
+      msg: "Upload result: {{ s3_upload.stdout }}"
